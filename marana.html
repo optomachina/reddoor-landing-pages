@@ -5,164 +5,261 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>House Painters in Marana, AZ | Red Door Painting Pros</title>
     <meta name="description" content="Professional house painters in Marana, AZ. Interior & exterior painting for homes in Dove Mountain, Gladden Farms, and Marana neighborhoods. Free estimates.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: #c41e3a;
+            --primary-dark: #a01830;
+            --dark: #1a1a1a;
+            --gray: #666;
+            --light-gray: #f5f5f5;
+            --white: #ffffff;
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
+            --shadow-hover: 0 8px 30px rgba(0,0,0,0.12);
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        header { background: #c41e3a; color: white; padding: 1rem 0; }
-        .hero { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), #c41e3a; color: white; padding: 80px 0; text-align: center; }
-        .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
-        .hero p { font-size: 1.2rem; margin-bottom: 2rem; }
-        .cta-button { display: inline-block; background: white; color: #c41e3a; padding: 15px 40px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 1.1rem; }
-        .section { padding: 60px 0; }
-        .section:nth-child(even) { background: #f8f8f8; }
-        .section h2 { text-align: center; font-size: 2.2rem; margin-bottom: 2rem; color: #c41e3a; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; }
-        .card { background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .card h3 { color: #c41e3a; margin-bottom: 1rem; }
-        .neighborhoods { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin: 2rem 0; }
-        .neighborhood { background: #c41e3a; color: white; padding: 0.5rem 1.5rem; border-radius: 25px; font-weight: 500; }
-        .testimonial { background: white; padding: 2rem; border-left: 4px solid #c41e3a; margin: 1rem 0; }
-        footer { background: #333; color: white; padding: 2rem 0; text-align: center; }
-        .phone { font-size: 1.5rem; font-weight: bold; color: #c41e3a; }
-        ul { margin-left: 1.5rem; margin-top: 1rem; }
-        .highlight { background: #fff3cd; padding: 2rem; border-radius: 10px; margin: 2rem 0; border-left: 4px solid #c41e3a; }
+        body { font-family: 'Open Sans', sans-serif; line-height: 1.6; color: var(--dark); font-size: 16px; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; font-weight: 700; line-height: 1.2; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        header { background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; padding: 16px 0; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo-icon { width: 48px; height: 48px; background: var(--primary); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; }
+        .logo-text { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.25rem; color: var(--dark); }
+        .logo-text span { color: var(--primary); }
+        .header-cta { display: flex; align-items: center; gap: 24px; }
+        .phone-link { display: flex; align-items: center; gap: 8px; color: var(--dark); text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: color 0.3s; }
+        .phone-link:hover { color: var(--primary); }
+        .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; background: var(--primary); color: var(--white); text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 0.95rem; transition: all 0.3s ease; border: none; cursor: pointer; }
+        .btn:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+        .btn-white { background: var(--white); color: var(--primary); }
+        .btn-white:hover { background: var(--light-gray); }
+        .btn-outline { background: transparent; border: 2px solid var(--white); }
+        .btn-outline:hover { background: var(--white); color: var(--primary); }
+        .hero { background: linear-gradient(135deg, rgba(26,26,26,0.85) 0%, rgba(26,26,26,0.7) 100%), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><rect fill="%23666" width="1920" height="1080"/></svg>'); background-size: cover; background-position: center; color: var(--white); padding: 140px 0; text-align: center; position: relative; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(196,30,58,0.9); padding: 8px 20px; border-radius: 50px; font-size: 0.875rem; font-weight: 600; margin-bottom: 24px; }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 24px; max-width: 900px; margin-left: auto; margin-right: auto; }
+        .hero p { font-size: 1.25rem; max-width: 700px; margin: 0 auto 40px; opacity: 0.95; }
+        .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .trust-bar { background: var(--primary); color: var(--white); padding: 20px 0; }
+        .trust-items { display: flex; justify-content: center; gap: 48px; flex-wrap: wrap; }
+        .trust-item { display: flex; align-items: center; gap: 10px; font-weight: 500; font-size: 0.95rem; }
+        .section { padding: 100px 0; }
+        .section-alt { background: var(--light-gray); }
+        .section-header { text-align: center; max-width: 700px; margin: 0 auto 60px; }
+        .section-label { display: inline-block; color: var(--primary); font-weight: 700; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px; }
+        .section h2 { font-size: 2.75rem; color: var(--dark); margin-bottom: 20px; }
+        .section-header p { font-size: 1.125rem; color: var(--gray); }
+        .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 32px; }
+        .card { background: var(--white); padding: 40px; border-radius: 12px; box-shadow: var(--shadow); transition: transform 0.3s, box-shadow 0.3s; }
+        .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+        .card-icon { width: 60px; height: 60px; background: rgba(196,30,58,0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 28px; margin-bottom: 24px; }
+        .card h3 { font-size: 1.35rem; color: var(--dark); margin-bottom: 16px; }
+        .card p { color: var(--gray); line-height: 1.7; }
+        .neighborhoods-wrap { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 16px; }
+        .neighborhood-tag { background: var(--primary); color: var(--white); padding: 8px 20px; border-radius: 50px; font-weight: 500; font-size: 0.95rem; }
+        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 32px; }
+        .testimonial { background: var(--white); padding: 40px; border-radius: 12px; box-shadow: var(--shadow); position: relative; }
+        .testimonial::before { content: '"'; font-family: Georgia, serif; font-size: 80px; color: var(--primary); opacity: 0.2; position: absolute; top: 20px; left: 24px; line-height: 1; }
+        .testimonial-text { font-size: 1.05rem; color: var(--gray); margin-bottom: 24px; line-height: 1.8; position: relative; z-index: 1; }
+        .testimonial-author { display: flex; align-items: center; gap: 16px; }
+        .testimonial-avatar { width: 48px; height: 48px; background: var(--light-gray); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--primary); }
+        .testimonial-name { font-weight: 700; color: var(--dark); }
+        .testimonial-role { font-size: 0.9rem; color: var(--gray); }
+        .cta-section { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: var(--white); padding: 100px 0; text-align: center; }
+        .cta-section h2 { color: var(--white); font-size: 2.75rem; margin-bottom: 20px; }
+        .cta-section p { font-size: 1.25rem; opacity: 0.95; max-width: 600px; margin: 0 auto 32px; }
+        .cta-phone { font-family: 'Montserrat', sans-serif; font-size: 2rem; font-weight: 700; margin-bottom: 32px; }
+        footer { background: var(--dark); color: var(--white); padding: 80px 0 32px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 64px; }
+        .footer-brand .logo-text { color: var(--white); font-size: 1.5rem; margin-bottom: 20px; display: block; }
+        .footer-brand p { color: rgba(255,255,255,0.7); line-height: 1.8; margin-bottom: 24px; }
+        .footer-title { font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 24px; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.3s; }
+        .footer-links a:hover { color: var(--white); }
+        .footer-contact p { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; color: rgba(255,255,255,0.7); }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+        .footer-bottom p { color: rgba(255,255,255,0.5); font-size: 0.9rem; }
+        @media (max-width: 768px) {
+            .hero { padding: 80px 0; }
+            .hero h1 { font-size: 2.25rem; }
+            .section { padding: 60px 0; }
+            .section h2 { font-size: 2rem; }
+            .cards-grid { grid-template-columns: 1fr; }
+            .header-cta .phone-link { display: none; }
+            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+            .trust-items { flex-direction: column; gap: 16px; }
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <h1>Red Door Painting Pros — Marana</h1>
+            <div class="header-inner">
+                <a href="/" class="logo">
+                    <div class="logo-icon">🚪</div>
+                    <div class="logo-text">Red Door <span>Painting</span></div>
+                </a>
+                <div class="header-cta">
+                    <a href="tel:520-500-3791" class="phone-link"><span>📞</span> 520-500-3791</a>
+                    <a href="#quote" class="btn">Get Free Estimate</a>
+                </div>
+            </div>
         </div>
     </header>
 
     <section class="hero">
         <div class="container">
+            <div class="hero-badge">🏠 Trusted by Marana Homeowners</div>
             <h1>Marana's Trusted House Painters</h1>
             <p>Premium painting services for Dove Mountain, Gladden Farms, and all Marana neighborhoods. We know Arizona homes—and how to protect them from the desert sun.</p>
-            <a href="#quote" class="cta-button">Get Free Estimate</a>
-        </div>
-    </section>
-
-    <section class="section">
-        <div class="container">
-            <h2>Neighborhoods We Serve in Marana</h2>
-            <div class="neighborhoods">
-                <span class="neighborhood">Dove Mountain</span>
-                <span class="neighborhood">Gladden Farms</span>
-                <span class="neighborhood">Continental Reserve</span>
-                <span class="neighborhood">Madera Highlands</span>
-                <span class="neighborhood">Sycamore Vista</span>
-                <span class="neighborhood">Arizona Pavilions</span>
-                <span class="neighborhood">Tangerine Crossing</span>
-                <span class="neighborhood">Ocotillo Canyon</span>
+            <div class="hero-buttons">
+                <a href="#quote" class="btn btn-white">Get Free Estimate</a>
+                <a href="tel:520-500-3791" class="btn btn-outline">Call Joel: 520-500-3791</a>
             </div>
         </div>
     </section>
 
+    <div class="trust-bar">
+        <div class="container">
+            <div class="trust-items">
+                <div class="trust-item"><span>✓</span> Licensed & Bonded</div>
+                <div class="trust-item"><span>✓</span> Fully Insured</div>
+                <div class="trust-item"><span>✓</span> Family Owned Since 2020</div>
+                <div class="trust-item"><span>✓</span> 5-Star Rated</div>
+            </div>
+        </div>
+    </div>
+
     <section class="section">
         <div class="container">
-            <h2>Marana Home Painting Services</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>🏠 Exterior House Painting</h3>
-                    <p>Protect your Marana home from intense Arizona sun with premium exterior paints designed for desert climates. Stucco, wood siding, trim, doors—we handle it all with precision.</p>
-                </div>
-                <div class="card">
-                    <h3>🎨 Interior Painting</h3>
-                    <p>Transform your living spaces with flawless interior painting. Bedrooms, living rooms, kitchens, and accent walls done right—with clean lines and zero mess.</p>
-                </div>
-                <div class="card">
-                    <h3>🚪 Cabinet Refinishing</h3>
-                    <p>Update your kitchen or bathroom cabinets for a fraction of replacement cost. Durable factory-quality finish that lasts.</p>
-                </div>
-                <div class="card">
-                    <h3>🏜️ Stucco Repair & Painting</h3>
-                    <p>Fix cracks and refresh your stucco exterior. We repair damage from settling and sun exposure, then apply breathable, UV-resistant coatings.</p>
-                </div>
-                <div class="card">
-                    <h3>🧱 Drywall Repair</h3>
-                    <p>Holes, cracks, texture matching—our drywall experts make walls look brand new before the paint goes on.</p>
-                </div>
-                <div class="card">
-                    <h3>💧 Pressure Washing</h3>
-                    <p>Remove dust, grime, and sun damage before painting. Proper prep is the difference between paint that peels and paint that lasts.</p>
-                </div>
+            <div class="section-header">
+                <span class="section-label">Local Coverage</span>
+                <h2>Neighborhoods We Serve in Marana</h2>
+                <p>From Dove Mountain to Gladden Farms, we paint homes across all of Marana's communities.</p>
+            </div>
+            <div class="neighborhoods-wrap">
+                <span class="neighborhood-tag">Dove Mountain</span>
+                <span class="neighborhood-tag">Gladden Farms</span>
+                <span class="neighborhood-tag">Continental Reserve</span>
+                <span class="neighborhood-tag">Madera Highlands</span>
+                <span class="neighborhood-tag">Sycamore Vista</span>
+                <span class="neighborhood-tag">Arizona Pavilions</span>
+                <span class="neighborhood-tag">Tangerine Crossing</span>
+                <span class="neighborhood-tag">Ocotillo Canyon</span>
             </div>
         </div>
     </section>
 
-    <section class="section">
+    <section class="section section-alt">
         <div class="container">
-            <h2>Why Marana Homeowners Choose Red Door</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>🌵 Desert Climate Experts</h3>
-                    <p>We understand Marana's extreme conditions—110° summers, monsoon season, and intense UV exposure. Our paint selections and application techniques are specifically chosen for longevity in this environment.</p>
-                </div>
-                <div class="card">
-                    <h3>🏆 Premium Quality Materials</h3>
-                    <p>We use Sherwin-Williams and Benjamin Moore products with built-in UV protection and elastomeric properties that flex with temperature changes.</p>
-                </div>
-                <div class="card">
-                    <h3>⏰ Reliable Scheduling</h3>
-                    <p>We show up when we say we will. No waiting around, no missed appointments. Your time is valuable—we respect that.</p>
-                </div>
-                <div class="card">
-                    <h3>✅ Licensed, Bonded & Insured</h3>
-                    <p>Full protection for your property. Certificate of insurance available upon request.</p>
-                </div>
-                <div class="card">
-                    <h3>💰 Fair, Transparent Pricing</h3>
-                    <p>Detailed written estimates with no hidden fees. Know exactly what you're paying for before we start.</p>
-                </div>
-                <div class="card">
-                    <h3>🎖️ Discounts Available</h3>
-                    <p>10% Military Discount • 5-15% Senior Discount • First Responder Discount • Cash Payment Discount</p>
-                </div>
+            <div class="section-header">
+                <span class="section-label">Our Services</span>
+                <h2>Marana Home Painting Services</h2>
+                <p>Comprehensive painting solutions tailored for Arizona's desert climate and Marana's beautiful homes.</p>
+            </div>
+            <div class="cards-grid">
+                <div class="card"><div class="card-icon">🏠</div><h3>Exterior House Painting</h3><p>Protect your Marana home from intense Arizona sun with premium exterior paints designed for desert climates. Stucco, wood siding, trim, doors—we handle it all with precision.</p></div>
+                <div class="card"><div class="card-icon">🎨</div><h3>Interior Painting</h3><p>Transform your living spaces with flawless interior painting. Bedrooms, living rooms, kitchens, and accent walls done right—with clean lines and zero mess.</p></div>
+                <div class="card"><div class="card-icon">🚪</div><h3>Cabinet Refinishing</h3><p>Update your kitchen or bathroom cabinets for a fraction of replacement cost. Durable factory-quality finish that lasts.</p></div>
+                <div class="card"><div class="card-icon">🏜️</div><h3>Stucco Repair & Painting</h3><p>Fix cracks and refresh your stucco exterior. We repair damage from settling and sun exposure, then apply breathable, UV-resistant coatings.</p></div>
+                <div class="card"><div class="card-icon">🧱</div><h3>Drywall Repair</h3><p>Holes, cracks, texture matching—our drywall experts make walls look brand new before the paint goes on.</p></div>
+                <div class="card"><div class="card-icon">💧</div><h3>Pressure Washing</h3><p>Remove dust, grime, and sun damage before painting. Proper prep is the difference between paint that peels and paint that lasts.</p></div>
             </div>
         </div>
     </section>
 
     <section class="section">
         <div class="container">
-            <h2>What Marana Customers Say</h2>
-            <div class="testimonial">
-                <p><strong>"My house looks brand new."</strong></p>
-                <p>"Brilliant all round service. Two days to paint whole house, easy communication, attention to detail, excellent finish. My house looks brand new and my neighbor says I now have the best house on the street and I have to agree. Super happy. Hire them you won't regret it."</p>
-                <p>— Julie F., Dove Mountain</p>
+            <div class="section-header">
+                <span class="section-label">Why Red Door</span>
+                <h2>Why Marana Homeowners Choose Red Door</h2>
             </div>
-            <div class="testimonial">
-                <p><strong>"They exceeded all my expectations."</strong></p>
-                <p>"Joel and his team were great to work with. They exceeded all my expectations. They met the timelines they set and everything was cleaned up well at the end of the project."</p>
-                <p>— Joseph H., Gladden Farms</p>
-            </div>
-            <div class="testimonial">
-                <p><strong>"Extremely professional."</strong></p>
-                <p>"Joel and his team are extremely professional and provide quality every time. I have now used him on 3 projects and plan to continue to use him."</p>
-                <p>— Eric S., Continental Reserve</p>
+            <div class="cards-grid">
+                <div class="card"><div class="card-icon">🌵</div><h3>Desert Climate Experts</h3><p>We understand Marana's extreme conditions—110° summers, monsoon season, and intense UV exposure. Our paint selections and application techniques are specifically chosen for longevity in this environment.</p></div>
+                <div class="card"><div class="card-icon">🏆</div><h3>Premium Quality Materials</h3><p>We use Sherwin-Williams and Benjamin Moore products with built-in UV protection and elastomeric properties that flex with temperature changes.</p></div>
+                <div class="card"><div class="card-icon">⏰</div><h3>Reliable Scheduling</h3><p>We show up when we say we will. No waiting around, no missed appointments. Your time is valuable—we respect that.</p></div>
+                <div class="card"><div class="card-icon">✅</div><h3>Licensed, Bonded & Insured</h3><p>Full protection for your property. Certificate of insurance available upon request.</p></div>
+                <div class="card"><div class="card-icon">💰</div><h3>Fair, Transparent Pricing</h3><p>Detailed written estimates with no hidden fees. Know exactly what you're paying for before we start.</p></div>
+                <div class="card"><div class="card-icon">🎖️</div><h3>Discounts Available</h3><p>10% Military Discount • 5-15% Senior Discount • First Responder Discount • Cash Payment Discount</p></div>
             </div>
         </div>
     </section>
 
-    <section class="section" id="quote">
+    <section class="section section-alt">
         <div class="container">
-            <div class="highlight">
-                <h2>Ready to Transform Your Marana Home?</h2>
-                <p style="font-size: 1.2rem; margin-bottom: 1.5rem;">Get a free, no-obligation estimate for your Marana home. We'll visit your property, assess the work, and provide a detailed quote.</p>
-                <p class="phone">📞 Call Joel: 520-500-3791</p>
-                <p style="margin-top: 1rem;">Proudly serving Marana, Dove Mountain, and surrounding communities since 2020.</p>
-                <a href="#" class="cta-button" style="background: #c41e3a; color: white; margin-top: 1rem;">Request Free Estimate</a>
+            <div class="section-header">
+                <span class="section-label">Testimonials</span>
+                <h2>What Marana Customers Say</h2>
             </div>
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <p class="testimonial-text">Brilliant all round service. Two days to paint whole house, easy communication, attention to detail, excellent finish. My house looks brand new and my neighbor says I now have the best house on the street and I have to agree. Super happy. Hire them you won't regret it.</p>
+                    <div class="testimonial-author"><div class="testimonial-avatar">JF</div><div><div class="testimonial-name">Julie F.</div><div class="testimonial-role">Dove Mountain</div></div></div>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">Joel and his team were great to work with. They exceeded all my expectations. They met the timelines they set and everything was cleaned up well at the end of the project.</p>
+                    <div class="testimonial-author"><div class="testimonial-avatar">JH</div><div><div class="testimonial-name">Joseph H.</div><div class="testimonial-role">Gladden Farms</div></div></div>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">Joel and his team are extremely professional and provide quality every time. I have now used him on 3 projects and plan to continue to use him.</p>
+                    <div class="testimonial-author"><div class="testimonial-avatar">ES</div><div><div class="testimonial-name">Eric S.</div><div class="testimonial-role">Continental Reserve</div></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" id="quote">
+        <div class="container">
+            <h2>Ready to Transform Your Marana Home?</h2>
+            <p>Get a free, no-obligation estimate for your Marana home. We'll visit your property, assess the work, and provide a detailed quote.</p>
+            <div class="cta-phone">📞 520-500-3791</div>
+            <a href="tel:520-500-3791" class="btn btn-white">Call Joel Now</a>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p><strong>Red Door Painting Pros</strong></p>
-            <p>Proudly Serving Marana & Surrounding Areas</p>
-            <p class="phone">520-500-3791</p>
-            <p style="margin-top: 1rem; opacity: 0.8;">Licensed • Bonded • Insured • Family Owned Since 2020</p>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo-text">Red Door <span style="color: #c41e3a;">Painting</span></div>
+                    <p>Tucson's trusted choice for high-quality residential and commercial painting. Family owned and operated since 2020.</p>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Exterior Painting</a></li>
+                        <li><a href="#">Interior Painting</a></li>
+                        <li><a href="#">Cabinet Refinishing</a></li>
+                        <li><a href="#">Stucco Repair</a></li>
+                        <li><a href="#">Commercial Painting</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">Areas Served</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Tucson</a></li>
+                        <li><a href="#">Marana</a></li>
+                        <li><a href="#">Oro Valley</a></li>
+                        <li><a href="#">Vail</a></li>
+                        <li><a href="#">Sahuarita</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col footer-contact">
+                    <h4 class="footer-title">Contact</h4>
+                    <p>📍 3661 N Campbell Ave #115<br>Tucson, AZ 85719</p>
+                    <p>📞 520-500-3791</p>
+                    <p>✉️ estimating@reddoorpaintingpros.com</p>
+                    <p>🕐 Mon-Fri: 8am - 5pm</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Red Door Painting Pros. All rights reserved.</p>
+                <p>Licensed • Bonded • Insured • ROC # [License Number]</p>
+            </div>
         </div>
     </footer>
 </body>
