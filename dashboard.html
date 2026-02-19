@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Door Marketing Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #c41e3a;
+            --primary-dark: #a01830;
+            --success: #22c55e;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --dark: #1a1a1a;
+            --gray: #6b7280;
+            --light-gray: #f3f4f6;
+            --white: #ffffff;
+            --shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--light-gray); color: var(--dark); }
+        .dashboard { max-width: 1400px; margin: 0 auto; padding: 24px; }
+        header { background: var(--white); padding: 24px; border-radius: 12px; box-shadow: var(--shadow); margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; }
+        h1 { font-size: 1.5rem; font-weight: 700; }
+        .last-updated { color: var(--gray); font-size: 0.875rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-bottom: 24px; }
+        .card { background: var(--white); border-radius: 12px; padding: 24px; box-shadow: var(--shadow); }
+        .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+        .card-title { font-size: 0.875rem; font-weight: 600; color: var(--gray); text-transform: uppercase; letter-spacing: 0.5px; }
+        .card-value { font-size: 2.5rem; font-weight: 700; color: var(--dark); }
+        .card-change { font-size: 0.875rem; margin-top: 8px; }
+        .positive { color: var(--success); }
+        .negative { color: var(--danger); }
+        .neutral { color: var(--warning); }
+        .table-container { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { text-align: left; padding: 12px; font-size: 0.875rem; }
+        th { font-weight: 600; color: var(--gray); border-bottom: 1px solid var(--light-gray); }
+        td { border-bottom: 1px solid var(--light-gray); }
+        tr:last-child td { border-bottom: none; }
+        .badge { display: inline-block; padding: 4px 12px; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; }
+        .badge-success { background: #dcfce7; color: #166534; }
+        .badge-warning { background: #fef3c7; color: #92400e; }
+        .badge-danger { background: #fee2e2; color: #991b1b; }
+        .badge-neutral { background: var(--light-gray); color: var(--gray); }
+        .progress-bar { height: 8px; background: var(--light-gray); border-radius: 4px; overflow: hidden; margin-top: 8px; }
+        .progress-fill { height: 100%; background: var(--primary); border-radius: 4px; }
+        .section-title { font-size: 1.125rem; font-weight: 700; margin-bottom: 16px; }
+        .metric-row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--light-gray); }
+        .metric-row:last-child { border-bottom: none; }
+        .metric-label { color: var(--gray); }
+        .metric-value { font-weight: 600; }
+        .alert { background: #fef3c7; border-left: 4px solid var(--warning); padding: 16px; border-radius: 0 8px 8px 0; margin-bottom: 24px; }
+        .alert-title { font-weight: 600; color: #92400e; margin-bottom: 4px; }
+        .alert-text { color: #92400e; font-size: 0.875rem; }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <header>
+            <div>
+                <h1>🚪 Red Door Painting — Marketing Dashboard</h1>
+                <p class="last-updated">Last updated: February 19, 2026 • Data from Trello + Invoice Analysis</p>
+            </div>
+            <div style="text-align: right;">
+                <div style="font-size: 1.5rem; font-weight: 700; color: var(--primary);">$269K+</div>
+                <div style="font-size: 0.875rem; color: var(--gray);">Major Projects Tracked</div>
+            </div>
+        </header>
+
+        <div class="alert">
+            <div class="alert-title">⚠️ QuickBooks Access Needed</div>
+            <div class="alert-text">Dashboard showing static data from invoice analysis. Connect QB for real-time metrics. <strong>Action:</strong> Request QB read-only access from Joel.</div>
+        </div>
+
+        <!-- KPI Cards -->
+        <div class="grid">
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-title">Estimates This Period</span>
+                    <span class="badge badge-neutral">319 Total</span>
+                </div>
+                <div class="card-value">319</div>
+                <div class="card-change neutral">From invoice analysis</div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-title">Stale Estimates</span>
+                    <span class="badge badge-danger">Reactivation Needed</span>
+                </div>
+                <div class="card-value" style="color: var(--danger);">319</div>
+                <div class="card-change negative">Viewed/Sent but not closed</div>
+                <div class="progress-bar"><div class="progress-fill" style="width: 100%; background: var(--danger);"></div></div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-title">Largest Commercial Win</span>
+                    <span class="badge badge-success">HOA</span>
+                </div>
+                <div class="card-value" style="color: var(--success);">$209K</div>
+                <div class="card-change positive">Saddlebrook Ranch Villas</div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-title">Avg Cabinet Ticket</span>
+                    <span class="badge badge-success">High Margin</span>
+                </div>
+                <div class="card-value">$5,504</div>
+                <div class="card-change positive">Range: $1,880 - $11,128</div>
+            </div>
+        </div>
+
+        <!-- Two Column Layout -->
+        <div class="grid" style="grid-template-columns: 2fr 1fr;">
+            <!-- Revenue by Job Type -->
+            <div class="card">
+                <h2 class="section-title">Revenue by Job Type (Historical)</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Job Type</th>
+                                <th>Sample Ticket</th>
+                                <th>Volume</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>HOA / Commercial</strong></td>
+                                <td>$209,000</td>
+                                <td>3 major projects</td>
+                                <td><span class="badge badge-success">Strong</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Multi-Family / Condos</strong></td>
+                                <td>$35,000</td>
+                                <td>Ridge 22, Sycamore</td>
+                                <td><span class="badge badge-success">Growing</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Kitchen Cabinets</strong></td>
+                                <td>$5,504 avg</td>
+                                <td>High margin niche</td>
+                                <td><span class="badge badge-warning">Opportunity</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Residential Exterior</strong></td>
+                                <td>$8,000+</td>
+                                <td>Core business</td>
+                                <td><span class="badge badge-success">Stable</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Subcontracting</strong></td>
+                                <td>Varies</td>
+                                <td>Paint Folks, NexGen</td>
+                                <td><span class="badge badge-neutral">Active</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Geographic Performance -->
+            <div class="card">
+                <h2 class="section-title">Top Performing Areas</h2>
+                <div class="metric-row">
+                    <span class="metric-label">Marana</span>
+                    <span class="metric-value" style="color: var(--success);">🔥 High Value</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">Oro Valley</span>
+                    <span class="metric-value" style="color: var(--success);">💰 Affluent</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">Saddlebrook</span>
+                    <span class="metric-value" style="color: var(--success);">🏆 $209K Win</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">Vail</span>
+                    <span class="metric-value">Growing</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">Green Valley</span>
+                    <span class="metric-value">Senior market</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">Sahuarita</span>
+                    <span class="metric-value">Emerging</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Active Trello Tasks -->
+        <div class="card" style="margin-bottom: 24px;">
+            <h2 class="section-title">Active Marketing Tasks (Trello)</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Status</th>
+                            <th>Task</th>
+                            <th>Impact</th>
+                            <th>Blocked By</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="badge badge-warning">Next Up</span></td>
+                            <td>Set Up Online Scheduling</td>
+                            <td>High — enables auto-text</td>
+                            <td>Joel decision needed</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge badge-warning">Next Up</span></td>
+                            <td>Missed Call Auto-Text</td>
+                            <td>High — captures leads</td>
+                            <td>Scheduling setup</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge badge-warning">Next Up</span></td>
+                            <td>Estimate Follow-up Sequence</td>
+                            <td>High — converts quotes</td>
+                            <td>Copy needed</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge badge-warning">Next Up</span></td>
+                            <td>Reactivation Campaign (319)</td>
+                            <td>Very High — $X potential</td>
+                            <td>Email sequences</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge badge-neutral">Backlog</span></td>
+                            <td>Lead Attribution Tracking</td>
+                            <td>Medium — data quality</td>
+                            <td>GHL setup</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge badge-neutral">Backlog</span></td>
+                            <td>Commercial Landing Page</td>
+                            <td>Medium — B2B leads</td>
+                            <td>Design completion</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Key Insights -->
+        <div class="grid" style="grid-template-columns: 1fr 1fr;">
+            <div class="card">
+                <h2 class="section-title">🎯 Key Insights</h2>
+                <div class="metric-row">
+                    <span class="metric-label">Biggest Opportunity</span>
+                    <span class="metric-value" style="color: var(--primary);">319 Stale Estimates</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">Hidden Goldmine</span>
+                    <span class="metric-value">Cabinet painting niche</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">Geographic Focus</span>
+                    <span class="metric-value">Marana / Oro Valley</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">Discount Leverage</span>
+                    <span class="metric-value">Military 10%, Senior 5-15%</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2 class="section-title">📋 Immediate Actions</h2>
+                <div class="metric-row">
+                    <span class="metric-label">1. Get QB Access</span>
+                    <span class="metric-value">For live dashboard</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">2. Scheduling Tool</span>
+                    <span class="metric-value">Ask Joel: GHL vs Calendly</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">3. Email Sequences</span>
+                    <span class="metric-value">Write 3-4 follow-ups</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">4. Landing Pages</span>
+                    <span class="metric-value">Deploy 7 city pages</span>
+                </div>
+            </div>
+        </div>
+
+        <footer style="text-align: center; padding: 24px; color: var(--gray); font-size: 0.875rem;">
+            <p>Red Door Painting Pros • Data compiled from Trello + Invoice Analysis</p>
+            <p style="margin-top: 8px;">Dashboard updates automatically when QB is connected</p>
+        </footer>
+    </div>
+</body>
+</html>
