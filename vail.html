@@ -5,77 +5,208 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>House Painters in Vail, AZ | Red Door Painting Pros</title>
     <meta name="description" content="Professional house painters in Vail, AZ. Interior & exterior painting for homes in the Vail School District area and surrounding communities.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: #c41e3a;
+            --primary-dark: #a01830;
+            --dark: #1a1a1a;
+            --gray: #666;
+            --light-gray: #f5f5f5;
+            --white: #ffffff;
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
+            --shadow-hover: 0 8px 30px rgba(0,0,0,0.12);
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        header { background: #c41e3a; color: white; padding: 1rem 0; }
-        .hero { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), #5a7c5a; color: white; padding: 80px 0; text-align: center; }
-        .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
-        .hero p { font-size: 1.2rem; margin-bottom: 2rem; }
-        .cta-button { display: inline-block; background: #c41e3a; color: white; padding: 15px 40px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 1.1rem; }
-        .section { padding: 60px 0; }
-        .section:nth-child(even) { background: #f8f8f8; }
-        .section h2 { text-align: center; font-size: 2.2rem; margin-bottom: 2rem; color: #c41e3a; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; }
-        .card { background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .card h3 { color: #c41e3a; margin-bottom: 1rem; }
-        footer { background: #333; color: white; padding: 2rem 0; text-align: center; }
-        .phone { font-size: 1.5rem; font-weight: bold; color: #c41e3a; }
-        .highlight { background: #fff3cd; padding: 2rem; border-radius: 10px; margin: 2rem 0; border-left: 4px solid #c41e3a; }
+        body { font-family: 'Open Sans', sans-serif; line-height: 1.6; color: var(--dark); font-size: 16px; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; font-weight: 700; line-height: 1.2; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        header { background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; padding: 16px 0; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo-icon { width: 48px; height: 48px; background: var(--primary); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; }
+        .logo-text { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.25rem; color: var(--dark); }
+        .logo-text span { color: var(--primary); }
+        .header-cta { display: flex; align-items: center; gap: 24px; }
+        .phone-link { display: flex; align-items: center; gap: 8px; color: var(--dark); text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: color 0.3s; }
+        .phone-link:hover { color: var(--primary); }
+        .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; background: var(--primary); color: var(--white); text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 0.95rem; transition: all 0.3s ease; border: none; cursor: pointer; }
+        .btn:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+        .btn-white { background: var(--white); color: var(--primary); }
+        .btn-white:hover { background: var(--light-gray); }
+        .hero { background: linear-gradient(135deg, rgba(26,26,26,0.85) 0%, rgba(26,26,26,0.7) 100%), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><rect fill="%235a7c5a" width="1920" height="1080"/></svg>'); background-size: cover; background-position: center; color: var(--white); padding: 140px 0; text-align: center; position: relative; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(196,30,58,0.9); padding: 8px 20px; border-radius: 50px; font-size: 0.875rem; font-weight: 600; margin-bottom: 24px; }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 24px; max-width: 900px; margin-left: auto; margin-right: auto; }
+        .hero p { font-size: 1.25rem; max-width: 700px; margin: 0 auto 40px; opacity: 0.95; }
+        .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .trust-bar { background: var(--primary); color: var(--white); padding: 20px 0; }
+        .trust-items { display: flex; justify-content: center; gap: 48px; flex-wrap: wrap; }
+        .trust-item { display: flex; align-items: center; gap: 10px; font-weight: 500; font-size: 0.95rem; }
+        .section { padding: 100px 0; }
+        .section-alt { background: var(--light-gray); }
+        .section-header { text-align: center; max-width: 700px; margin: 0 auto 60px; }
+        .section-label { display: inline-block; color: var(--primary); font-weight: 700; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px; }
+        .section h2 { font-size: 2.75rem; color: var(--dark); margin-bottom: 20px; }
+        .section-header p { font-size: 1.125rem; color: var(--gray); }
+        .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 32px; }
+        .card { background: var(--white); padding: 40px; border-radius: 12px; box-shadow: var(--shadow); transition: transform 0.3s, box-shadow 0.3s; }
+        .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+        .card-icon { width: 60px; height: 60px; background: rgba(196,30,58,0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 28px; margin-bottom: 24px; }
+        .card h3 { font-size: 1.35rem; color: var(--dark); margin-bottom: 16px; }
+        .card p { color: var(--gray); line-height: 1.7; }
+        .cta-section { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: var(--white); padding: 100px 0; text-align: center; }
+        .cta-section h2 { color: var(--white); font-size: 2.75rem; margin-bottom: 20px; }
+        .cta-section p { font-size: 1.25rem; opacity: 0.95; max-width: 600px; margin: 0 auto 32px; }
+        .cta-phone { font-family: 'Montserrat', sans-serif; font-size: 2rem; font-weight: 700; margin-bottom: 32px; }
+        footer { background: var(--dark); color: var(--white); padding: 80px 0 32px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 64px; }
+        .footer-brand .logo-text { color: var(--white); font-size: 1.5rem; margin-bottom: 20px; display: block; }
+        .footer-brand p { color: rgba(255,255,255,0.7); line-height: 1.8; margin-bottom: 24px; }
+        .footer-title { font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 24px; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.3s; }
+        .footer-links a:hover { color: var(--white); }
+        .footer-contact p { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; color: rgba(255,255,255,0.7); }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+        .footer-bottom p { color: rgba(255,255,255,0.5); font-size: 0.9rem; }
+        @media (max-width: 768px) {
+            .hero { padding: 80px 0; }
+            .hero h1 { font-size: 2.25rem; }
+            .section { padding: 60px 0; }
+            .section h2 { font-size: 2rem; }
+            .cards-grid { grid-template-columns: 1fr; }
+            .header-cta .phone-link { display: none; }
+            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+            .trust-items { flex-direction: column; gap: 16px; }
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <h1>Red Door Painting Pros — Vail</h1>
+            <div class="header-inner">
+                <a href="#" class="logo">
+                    <div class="logo-icon">🚪</div>
+                    <div class="logo-text">Red Door <span>Painting</span></div>
+                </a>
+                <div class="header-cta">
+                    <a href="tel:520-500-3791" class="phone-link">📞 520-500-3791</a>
+                    <a href="#quote" class="btn">Free Estimate</a>
+                </div>
+            </div>
         </div>
     </header>
 
     <section class="hero">
         <div class="container">
+            <div class="hero-badge">📍 Serving Vail & Surrounding Areas</div>
             <h1>Vail, AZ Painting Services</h1>
             <p>Quality painting for Vail families and homes near the Rincon Mountains. From new builds to established neighborhoods—we bring professional results to every project.</p>
-            <a href="#quote" class="cta-button">Get Free Estimate</a>
+            <div class="hero-buttons">
+                <a href="tel:520-500-3791" class="btn btn-white">📞 Call Joel Now</a>
+                <a href="#quote" class="btn btn-outline">Get Free Estimate</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="trust-bar">
+        <div class="container">
+            <div class="trust-items">
+                <div class="trust-item">✓ Free Estimates</div>
+                <div class="trust-item">✓ Licensed & Insured</div>
+                <div class="trust-item">✓ 5-Star Rated</div>
+                <div class="trust-item">✓ Local & Family Owned</div>
+            </div>
         </div>
     </section>
 
     <section class="section">
         <div class="container">
-            <h2>Professional Painting in Vail</h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem; font-size: 1.1rem;">Vail's growing community deserves quality painting services from a company that understands the unique challenges of Arizona's desert climate. Whether you're in a new development or an established home, we deliver lasting results.</p>
-            <div class="grid">
+            <div class="section-header">
+                <span class="section-label">Our Services</span>
+                <h2>Professional Painting in Vail</h2>
+                <p>Vail's growing community deserves quality painting services from a company that understands the unique challenges of Arizona's desert climate. Whether you're in a new development or an established home, we deliver lasting results.</p>
+            </div>
+            <div class="cards-grid">
                 <div class="card">
-                    <h3>🏠 Exterior Painting</h3>
+                    <div class="card-icon">🏠</div>
+                    <h3>Exterior Painting</h3>
                     <p>Full exterior painting services that protect your Vail home from intense desert sun and temperature swings. Stucco, wood, trim—we handle it all.</p>
                 </div>
                 <div class="card">
-                    <h3>🎨 Interior Painting</h3>
+                    <div class="card-icon">🎨</div>
+                    <h3>Interior Painting</h3>
                     <p>Transform your living spaces with professional interior painting. Clean lines, smooth finishes, and attention to every detail.</p>
                 </div>
                 <div class="card">
-                    <h3>🏜️ Stucco & Drywall</h3>
+                    <div class="card-icon">🏜️</div>
+                    <h3>Stucco & Drywall</h3>
                     <p>Repair and refresh your home's exterior. We fix cracks, match textures, and apply protective coatings built for Arizona.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="section" id="quote">
+    <section class="section section-alt" id="quote">
         <div class="container">
-            <div class="highlight">
+            <div class="section-header">
+                <span class="section-label">Get Started</span>
                 <h2>Get Your Free Vail Painting Estimate</h2>
-                <p class="phone">📞 Call Joel: 520-500-3791</p>
-                <a href="#" class="cta-button" style="margin-top: 1rem;">Request Free Estimate</a>
             </div>
+            <p style="text-align: center; font-size: 1.125rem; color: var(--gray); max-width: 700px; margin: 0 auto 40px;">Ready to transform your Vail home? Call Joel today for a free, no-obligation estimate.</p>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Paint Your Vail Home?</h2>
+            <p>Get a free estimate for your Vail painting project. Professional results, fair prices, and a crew that respects your home.</p>
+            <div class="cta-phone">📞 520-500-3791</div>
+            <a href="tel:520-500-3791" class="btn btn-white">Call Joel Now</a>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p><strong>Red Door Painting Pros</strong></p>
-            <p>Proudly Serving Vail & Surrounding Areas</p>
-            <p class="phone">520-500-3791</p>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo-text">Red Door <span style="color: #c41e3a;">Painting</span></div>
+                    <p>Tucson's trusted choice for high-quality residential and commercial painting. Family owned and operated since 2020.</p>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Exterior Painting</a></li>
+                        <li><a href="#">Interior Painting</a></li>
+                        <li><a href="#">Cabinet Refinishing</a></li>
+                        <li><a href="#">Stucco Repair</a></li>
+                        <li><a href="#">Commercial Painting</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">Areas Served</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Tucson</a></li>
+                        <li><a href="#">Marana</a></li>
+                        <li><a href="#">Oro Valley</a></li>
+                        <li><a href="#">Vail</a></li>
+                        <li><a href="#">Sahuarita</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col footer-contact">
+                    <h4 class="footer-title">Contact</h4>
+                    <p>📍 3661 N Campbell Ave #115<br>Tucson, AZ 85719</p>
+                    <p>📞 520-500-3791</p>
+                    <p>✉️ estimating@reddoorpaintingpros.com</p>
+                    <p>🕐 Mon-Fri: 8am - 5pm</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Red Door Painting Pros. All rights reserved.</p>
+                <p>Licensed • Bonded • Insured • ROC # [License Number]</p>
+            </div>
         </div>
     </footer>
 </body>
